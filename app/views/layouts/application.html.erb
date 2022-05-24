@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Stocking</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'home/navbar' %>
+
+    <div class="container">
+    <br>
+      <%= yield %>
+    </div/>
+    <br><br><br><br><br>
+
+    <%= render 'home/footer' %>
   </body>
 </html>

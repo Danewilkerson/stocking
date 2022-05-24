@@ -1,2 +1,23 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= form_tag root_path, :method => 'POST' do %>
+    <%= text_field_tag 'ticker', nil, placeholder: "Enter Ticker Symbol", size: 50 %>
+    <%= submit_tag 'Lookup' %>
+<% end %>
+
+<br>
+
+<% if @stock %>
+    <h3><%= @stock.company_name %></h3>
+    <img src="<%= @stock_logo.url %>"><br><br>
+    Open Price: <%= @stock.open %><br>
+    Close Price: <%= @stock.close %><br><br>
+    High of Day: <%= @stock.high %><br>
+    Low of Day: <%= @stock.low %><br>
+<% elsif @nothing %>
+    <%= @nothing %>
+<% end %>
+
+<% if @error %>
+    <%= @error %>
+<% end %>
+
+
