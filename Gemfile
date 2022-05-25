@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 4.3'
 gem 'jquery-rails'
 gem 'stock_quote', '~> 3.0'
+gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
