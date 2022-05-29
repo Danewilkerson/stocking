@@ -1,3 +1,4 @@
+
 <div class="col-md-10 offset-md-3">
     <%= form_tag root_path, :method => 'POST' do %>
         <div class="row">
@@ -14,7 +15,7 @@
 
 <div>
     <% if @stock %>
-        <h3><%= @stock.company_name %></h3>
+        <h3><%= @stock.symb %></h3>
         <img src="<%= @logo.url %>"><br><br>
         <b>company_name:</b> <%= @company.company_name %><br>
         <b>company_description:</b> <%= @company.description %><br><br>
