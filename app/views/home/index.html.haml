@@ -1,0 +1,48 @@
+.col-md-10.offset-md-3
+  = form_tag root_path, :method => 'POST' do
+    .row
+      .col
+        = text_field_tag 'ticker', nil, placeholder: "Ticker", size: 50, class:"form-control mx-sm-3"
+      .col
+        = submit_tag 'Lookup', class:"btn btn-dark"
+%br
+
+%div
+  - if @stock
+
+    %h3= @stock.symbol
+
+    %img{:src => @logo.url}/
+    %br
+    %br
+
+    %h4 
+      Price:
+      %b= @stock.latest_price
+    
+    %b company_name:
+    = @company.company_name
+    %br
+
+    %b company_description:
+    = @company.description
+    %br
+
+    %b market_cap:
+    = @stock.market_cap
+    %br
+
+    %b week52_high:
+    = @stock.week52_high
+    %br
+
+    %b week52_low:
+    = @stock.week52_low
+    %br
+
+  - elsif @nothing
+    .alert.alert-light.alert-dismissible.fade.show{:role => "alert"}
+      = @nothing
+  - elsif @error
+    .alert.alert-light.alert-dismissible.fade.show{:role => "alert"}
+      = @error

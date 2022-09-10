@@ -1,0 +1,7 @@
+%br
+- flash.each do |name, msg|
+  .alert.alert-warning.alert-dismissable{:role => "alert"}
+    %button.close{"data-dismiss" => "alert"}
+      %small
+        %sup x
+    = content_tag(:div, msg)

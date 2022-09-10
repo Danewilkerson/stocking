@@ -1,0 +1,32 @@
+
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to 'Stocking', root_path, class:"navbar-brand"
+    
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+    
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to 'About', home_about_path, class:"nav-link"
+      - if user_signed_in?
+        %li.nav-item
+          = link_to 'Edit Profile', edit_user_registration_path, class:"nav-link"
+        %li.nav-item
+          = link_to 'Stocks', stocks_path, class:"nav-link"
+        %li.nav-item
+          = link_to 'Add Stock', new_stock_path, class:"nav-link"
+        %li.nav-item
+          = link_to 'Log Out', destroy_user_session_path, method: :delete, class:"nav-link"
+      - else
+        %li.nav-item
+          = link_to 'Login', new_user_session_path, class:"nav-link"
+        %li.nav-item
+          = link_to 'Sign Up', new_user_registration_path, class:"nav-link"
+      
+    %div.form-inline
+      = form_tag root_path, :method => 'POST' do
+        .row
+          .col
+            = text_field_tag 'ticker', nil, placeholder: "Ticker", size: 10, class:"form-control mx-md-1"
+            = submit_tag 'Search', class:"btn btn-dark"
