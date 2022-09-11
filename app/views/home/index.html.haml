@@ -10,13 +10,14 @@
 %div
   - if @stock
 
-    %h3= @stock.symbol
-
     %img{:src => @logo.url}/
     %br
     %br
 
-    %h4 
+    %h3
+      %b= @stock.symbol
+
+    %h3 
       Price:
       %b= @stock.latest_price
     

@@ -1,22 +1,26 @@
 - @ticker = StockQuote::Stock.quote(@stock.ticker)
-%strong Ticker: #{@ticker.symbol}
-%br
+- @company = StockQuote::Stock.company(@stock.ticker)
 
-Price: $#{number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',')}
-%br
-
-Market Cap: $#{number_with_precision(@ticker.market_cap, :precision => 0, :delimiter => ',')}
-%br
-
-Volume: #{number_with_precision(@ticker.volume, :precision => 0, :delimiter => ',')}
-%br
-
-52 Week High: $#{number_with_precision(@ticker.week52_high, :precision => 2, :delimiter => ',')}
-%br
-
-52 Week Low: $#{number_with_precision(@ticker.week52_low, :precision => 2, :delimiter => ',')}
-%br
-
-= link_to 'Edit', edit_stock_path(@stock) 
-|
-= link_to 'Back', stocks_path
+%section.container
+    %h1 #{@ticker.symbol}
+    %strong Price:$#{number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',')}
+    %br
+    Market Cap: $#{number_with_precision(@ticker.market_cap, :precision => 0, :delimiter => ',')}
+    %br
+    Volume: #{number_with_precision(@ticker.volume, :precision => 0, :delimiter => ',')}
+    %br
+    52 Week High: $#{number_with_precision(@ticker.week52_high, :precision => 2, :delimiter => ',')}
+    %br
+    52 Week Low: $#{number_with_precision(@ticker.week52_low, :precision => 2, :delimiter => ',')}
+    %br
+    %br
+    %strong Company Information
+    %br
+    Employees: #{@company.employees}
+    %br
+    Description: #{@company.description}
+    %br
+    %br
+    = link_to 'Edit', edit_stock_path(@stock) 
+    |
+    = link_to 'Back', stocks_path
