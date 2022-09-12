@@ -1,13 +1,22 @@
-.col-md-10.offset-md-3
-  = form_tag root_path, :method => 'POST' do
-    .row
-      .col
-        = text_field_tag 'ticker', nil, placeholder: "Ticker", size: 50, class:"form-control mx-sm-3"
-      .col
-        = submit_tag 'Lookup', class:"btn btn-dark"
-%br
 
-%div
+%section.container{:style => "text-align:center;"}
+  =image_tag "logo.png"
+  -# %h1 DANESTOCK 
+  %br
+  %br
+  %br
+
+%section.container
+  .col-md-10.offset-md-3
+    = form_tag root_path, :method => 'POST' do
+      .row
+        .col
+          = text_field_tag 'ticker', nil, placeholder: "Ticker", size: 50, class:"form-control mx-sm-3"
+        .col
+          = submit_tag 'Lookup', class:"btn btn-dark"
+  %br
+
+%section.container
   - if @stock
 
     %img{:src => @logo.url}/
