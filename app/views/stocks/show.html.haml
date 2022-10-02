@@ -1,8 +1,19 @@
 - @ticker = StockQuote::Stock.quote(@stock.ticker)
 - @company = StockQuote::Stock.company(@stock.ticker)
+- @logo = StockQuote::Stock.logo(@stock.ticker)
+- @book = StockQuote::Stock.book(@stock.ticker)
+- @chart = StockQuote::Stock.chart(@stock.ticker)
+- @company = StockQuote::Stock.company(@stock.ticker)
+- @stats = StockQuote::Stock.stats(@stock.ticker)
+- @news = StockQuote::Stock.news(@stock.ticker)
+- @previous = StockQuote::Stock.previous(@stock.ticker)
+- @quote = StockQuote::Stock.quote(@stock.ticker)
 
 %section.container
+    %img{:src => "#{@logo.url}"}
+    %br
     %h1 #{@ticker.symbol}
+    %br
     %strong Price:$#{number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',')}
     %br
     Avg Volume: #{number_with_precision(@ticker.avg_total_volume, :precision => 0, :delimiter => ',')}
@@ -12,7 +23,6 @@
     52 Week High: $#{number_with_precision(@ticker.week52_high, :precision => 2, :delimiter => ',')}
     %br
     52 Week Low: $#{number_with_precision(@ticker.week52_low, :precision => 2, :delimiter => ',')}
-    %br
     %br
     %strong Company Information
     %br
@@ -30,3 +40,24 @@
     %br
     %br
     Company: #{@company.inspect}
+    %br
+    %br
+    Logo: #{@logo.inspect}    
+    %br
+    %br
+    book: #{@book.inspect} 
+    %br
+    %br
+    chart: #{@chart.inspect} 
+    %br
+    %br
+    stats: #{@stats.inspect} 
+    %br
+    %br
+    news: #{@news.inspect}  
+    %br
+    %br
+    previous: #{@previous.inspect} 
+    %br
+    %br
+    quote: #{@quote.inspect} 
