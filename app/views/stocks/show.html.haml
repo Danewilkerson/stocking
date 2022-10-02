@@ -5,6 +5,8 @@
     %h1 #{@ticker.symbol}
     %strong Price:$#{number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',')}
     %br
+    Avg Volume: #{number_with_precision(@ticker.avg_total_volume, :precision => 0, :delimiter => ',')}
+    %br
     Market Cap: $#{number_with_precision(@ticker.market_cap, :precision => 0, :delimiter => ',')}
     %br
     52 Week High: $#{number_with_precision(@ticker.week52_high, :precision => 2, :delimiter => ',')}
@@ -22,3 +24,9 @@
     = link_to 'Edit', edit_stock_path(@stock) 
     |
     = link_to 'Back', stocks_path
+    %br
+    %br
+    Stock: #{@ticker.inspect}
+    %br
+    %br
+    Company: #{@company.inspect}
